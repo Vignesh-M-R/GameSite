@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game Center | Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-repeat: no-repeat;
+            background: url(https://wallpapercave.com/wp/wp4585031.jpg);
+            background-size: 100%;
+            font-family: "Lato", sans-serif;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 128, 0.2);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 100px;
+        }
+        
+        .sidenav a {
+            padding: 15px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            text-shadow: 2px 3px 3px #333;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .sidenav a:hover {
+            color: #f1c40f;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        #main {
+            transition: margin-left .5s;
+            color: white;
+            text-shadow: 2px 3px 3px #333;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        
+       /* .gamebtn {
+            position: absolute;
+            margin-top: 20%;
+            margin-left: 32%;
+            padding: 15px 25px;
+            font-size: 22px;
+            font-family: 'courier';
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: white;
+            background-color:red;
+            border: none;
+            border-radius: 45%;
+            box-shadow: 0 9px #999;
+        }
+        
+        .gamebtn:hover {
+            background-color: darkred;
+        }
+        
+        .gamebtn:active {
+            background-color: green;
+            box-shadow: 0 5px #777;
+            transform: translateY(4px);
+        }
+*/
+    </style>
+</head>
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="home.html">Home</a>
+        <a href="#">About</a>
+        <a href="login.html">SignIn</a>
+        <a href="registration.html">SignUp</a>
+        <a href="#">Games</a>
+        <a href="#">Reach Me</a>
+    </div>
+
+    <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:30px">GAME<span style="font-size:30px; font-weight: bold">SITE</span></span>
+        <!--button class="gamebtn" id="game-btn" target="_blank">Let's
+            <br>Play</button-->
+    </div>
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+
+    </script>
+
+</body>
+
+</html>

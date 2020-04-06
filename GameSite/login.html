@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style type="text/css">
+        body {
+            background-size: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url(https://wallpapercave.com/wp/wp5837984.jpg);
+            font-family: "Lato", sans-serif;
+        }
+
+        #log {
+            width: 100px;
+            align-content: center;
+            color:white;
+            background-color: #111;
+            cursor: pointer;
+        }
+        
+        .login td {
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        #log-tab {
+            margin-left: 40%;
+            margin-top:5%;
+        }
+        
+        td {
+            padding-top: 30px;
+            text-shadow: 2px 3px 3px #000;
+        }
+        
+        td input {
+            box-shadow: 2px 3px 3px #000;
+        }
+        
+        input {
+            border-radius: 10px;
+            width: 200px;
+            height: 20px;
+            border-bottom: 1.5px solid #4bff00;
+            border-right: 1px solid #4bff00;
+            border-top: none;
+            border-left: none;
+            background: transparent;
+            color: white;
+            font-size: 14px;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgba(75,255,0, 0.1);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 100px;
+        }
+        
+        .sidenav a {
+            padding: 15px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            text-shadow: 2px 3px 3px #333;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .sidenav a:hover {
+            color: #f1c40f;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        #main {
+            transition: margin-left .5s;
+            color: white;
+            text-shadow: 2px 3px 3px #333;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+    <style>
+        .error {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="home.html">Home</a>
+        <a href="#">About</a>
+        <a href="login.html">SignIn</a>
+        <a href="registration.html">SignUp</a>
+        <a href="#">Games</a>
+        <a href="#">Reach Me</a>
+    </div>
+    <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:30px">GAME<span style="font-size:30px; font-weight: bold">SITE</span></span>
+        <div class="login">
+            <form id="loginform" method="POST" action="gamecenter.html" onsubmit="return Validate()" name="vform">
+                <table id="log-tab">
+                    <tr>
+                        <td>
+                            <h1 style="font-family: 'Helvetica';color:#fff;font-weight: bold;">Login</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            User Name:
+                        </td>
+                        <td>
+                            <input type="text" name="un2" value="" required="true">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Password:
+                        </td>
+                        <td>
+                            <input type="password" name="pwd2" value="" required="true">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="login" value="Login" id="log">
+                            <td><a href="#" style="color:#e9f42e; text-shadow: 2px 3px 3px #000">forget password</a></td>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+
+    </script>    
+</body>
+
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js">
+</script>
+
+<!--FOR LOGIN-->
+
+<script>
+    jQuery.validator.addMethod("noSpace", function(value, element) {
+        return value == '' || value.trim().length != 0;
+    }, "NO space and dont leave empty");
+    $.validator.addMethod("alphanumeric", function(value, element) {
+        return this.optional(element) || /^\w+$/i.test(value);
+    }, "Letters, numbers, and underscores only please");
+    var $loginForm = $('#loginform');
+    if ($loginForm.length) {
+        $loginForm.validate({
+            rules: {
+                un2: {
+                    required: true,
+                    noSpace: true
+                },
+                pwd2: {
+                    required: true
+                }
+            },
+            messages: {
+                un2: {
+                    required: "enter username"
+                },
+                pwd2: {
+                    required: "enter password"
+                }
+
+            }
+        });
+    }
+</script>
